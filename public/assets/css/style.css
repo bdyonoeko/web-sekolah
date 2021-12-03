@@ -1,0 +1,60 @@
+body{
+  color:  rgb(87, 87, 86);
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.navbar{
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.navbar .navbar-brand {
+  font-weight: bold;
+  font-size: 20px;
+  color:  rgb(87, 87, 86);
+}
+
+.navbar .btn {
+  color: white;
+}
+
+.hero {
+  margin-top: 75px;
+  font-family: 'Fredoka One', cursive;
+}
+
+.hero .quotes{
+  font-size: 28px;
+  /* color:  rgb(55, 53, 84); */
+}
+
+.hero .originator {
+  font-size: 16px;
+  /* color:  rgb(15, 11, 58); */
+}
+
+.hero img {
+  width: 100%;
+}
+
+.footer {
+  background: #f3f4f5;
+}
+
+.footer span {
+  color:  rgb(123, 123, 122);
+}
+
+.visi-misi {
+  margin-top: 100px;
+}
+
+.school-class {
+  margin-top: 100px;
+}
