@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\SchoolClassController;
 use App\Http\Controllers\Admin\SchoolProfileController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -31,4 +32,5 @@ Route::prefix('admin')
   Route::get('/', [DashboardController::class, 'index'])
     ->name('dashboard');
   Route::resource('/profil-sekolah', SchoolProfileController::class);
+  Route::resource('/kelas', SchoolClassController::class);
 });

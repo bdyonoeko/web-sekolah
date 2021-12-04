@@ -9,7 +9,7 @@
     <div class="card-body py-5">
 
       <!-- visi-misi -->
-      <div class="container">
+      <div class="px-2 mb-5">
         <div class="text-center">
           <h2>Visi</h2>
           <p>{!! $profil->visi !!}</p>
@@ -19,7 +19,7 @@
       </div>
     
       <!-- school-profile -->
-      <div class="container school-profile">
+      <div class="px-2 school-profile">
         <div class="row justify-content-center p-4 border shadow-sm">
           <div class="col-md-4 text-center">
             <h2>
@@ -45,7 +45,7 @@
         </div>
       </div>
 
-      <div class="container">
+      <div class="px-2">
         <a href="{{ route('profil-sekolah.edit', $profil->id) }}" class="btn btn-primary text-right mt-4 px-4">Edit</a>
       </div>
     </div>

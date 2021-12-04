@@ -24,7 +24,7 @@
 
   <!-- Nav Item - kelas -->
   <li class="nav-item">
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="{{ route('kelas.index') }}">
           <i class="fas fa-chalkboard-teacher"></i>
           <span>Kelas</span>
       </a>

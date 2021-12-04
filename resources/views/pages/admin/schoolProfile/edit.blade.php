@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Dashboard Admin')
+@section('title', 'Dashboard Profil Sekolah')
 
 @section('content')
   <h1 class="h3 mb-4 text-gray-800">Profil Sekolah</h1>

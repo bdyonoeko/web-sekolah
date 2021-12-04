@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests\Admin\SchoolClassRequest;
+use App\Models\SchoolClassModel;
 use Illuminate\Http\Request;
 
 class SchoolClassController extends Controller
@@ -14,7 +15,11 @@ class SchoolClassController extends Controller
      */
     public function index()
     {
-        return view('pages.classes');
+        $classes = SchoolClassModel::orderBy('nama')->get();
+
+        return view('pages.admin.schoolClass.index', [
+            'classes' => $classes
+        ]);
     }
 
     /**
@@ -24,7 +29,7 @@ class SchoolClassController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.schoolClass.create');
     }
 
     /**
@@ -33,9 +38,12 @@ class SchoolClassController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SchoolClassRequest $request)
     {
-        //
+        $validatedData = $request->all();
+
+        SchoolClassModel::create($validatedData);
+        return redirect()->route('kelas.index')->with('success', 'Kelas berhasil ditambahkan!');
     }
 
     /**
@@ -46,7 +54,10 @@ class SchoolClassController extends Controller
      */
     public function show($id)
     {
-        //
+        $class = SchoolClassModel::findOrFail($id);
+        return view('pages.admin.schoolClass.show', [
+            'class' => $class
+        ]);
     }
 
     /**
@@ -57,7 +68,11 @@ class SchoolClassController extends Controller
      */
     public function edit($id)
     {
-        //
+        $class = SchoolClassModel::findOrFail($id);
+
+        return view('pages.admin.schoolClass.edit', [
+            'class' => $class
+        ]);
     }
 
     /**
@@ -67,9 +82,14 @@ class SchoolClassController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SchoolClassRequest $request, $id)
     {
-        //
+        $validatedData = $request->all();
+
+        SchoolClassModel::findOrFail($id)
+            ->update($validatedData);
+
+        return redirect()->route('kelas.index')->with('success', 'Kelas berhasil di update!');
     }
 
     /**
@@ -80,6 +100,8 @@ class SchoolClassController extends Controller
      */
     public function destroy($id)
     {
-        //
+        SchoolClassModel::destroy($id);
+
+        return redirect()->route('kelas.index')->with('success', 'Kelas berhasil di hapus!');
     }
 }
