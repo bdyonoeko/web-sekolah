@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\SchoolProfileModel;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -13,6 +14,14 @@ class DashboardController extends Controller
 
         return view('pages.admin.schoolProfile.index', [
           'profil' =>  $profil     
+        ]);
+    }
+
+    public function daftar_siswa(Request $request){
+        $users = User::where('role', 'SISWA')->get();
+
+        return view('pages.admin.user.index', [
+          'users' =>  $users     
         ]);
     }
 }

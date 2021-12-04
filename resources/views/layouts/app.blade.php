@@ -10,6 +10,7 @@
   <title>@yield('title')</title>
 
   @include('includes.styles')
+  @stack('styles')
 
 </head>
 <body>
@@ -21,6 +22,7 @@
   @include('includes.frontend.footer')
 
   @include('includes.scripts')
+  @stack('scripts')
 
 </body>
 </html>

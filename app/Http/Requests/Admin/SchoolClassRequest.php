@@ -27,7 +27,7 @@ class SchoolClassRequest extends FormRequest
             'nama' => 'required|max:255',
             'wali_kelas' => 'required|max:255',
             'ketua_kelas' => 'required|max:255',
-            // 'tugas' => 'required|max:255',
+            'tugas' => 'required',
         ];
     }
 }

@@ -46,8 +46,13 @@
           <label for="tugas">Tugas</label>
           <input type="hidden" id="tugas" name="tugas" class="@error('tugas') is-invalid @enderror" value="{{ old('tugas', $class->tugas) }}">
           <trix-editor input="tugas"></trix-editor>
+          @error('ketua_kelas')
+            <div class="text-danger">
+              <small>{{ $message }}</small>
+            </div>
+          @enderror
         </div>
-
+        
         <button type="submit" class="btn btn-primary d-block ml-auto">Update</button>
   
       </form>

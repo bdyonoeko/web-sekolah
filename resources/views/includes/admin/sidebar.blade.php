@@ -32,7 +32,7 @@
 
   <!-- Nav Item - kelas -->
   <li class="nav-item">
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="{{ route('daftar-siswa') }}">
           <i class="fas fa-user-graduate"></i>
           <span>Siswa</span>
       </a>

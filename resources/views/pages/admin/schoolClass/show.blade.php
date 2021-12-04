@@ -24,14 +24,26 @@
           <thead>
             <tr>
               <th>Nama</th>
-              <th>Link</th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
+
+            @forelse ($users as $user)
             <tr>
-              <td>Tiger Nixon</td>
-              <td>System Architect</td>
+              <td>{{ $user->name }}</td>
+              <td>
+                <a href="{{ route('user.show', $user->id) }}" class="btn btn-info">
+                  Detail
+                </a>
+              </td>
             </tr>
+            @empty
+              <tr>
+                <td colspan="2" class="text-center">Belum ada siswa</td>
+              </tr>
+            @endforelse
+
           </tbody>
         </table>
       </div>

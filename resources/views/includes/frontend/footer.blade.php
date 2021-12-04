@@ -7,7 +7,7 @@
         <div class="col-md-6">
           <h2>Tentang</h2>
           <p class="description">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit similique itaque unde doloremque, magni labore nostrum debitis mollitia laboriosam earum, blanditiis minus delectus corporis. Quasi facere voluptate labore obcaecati? Magni quasi autem assumenda quo officia.
+            {!! $profil->tentang !!}
           </p>
         </div>
         <div class="col-md-6">
@@ -15,19 +15,19 @@
           <p class="my-0">
             <i class="fas fa-map-marked-alt"></i> Alamat:
             <span>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure consequuntur itaque debitis? Vel, dolorum expedita?.
+              {{ $profil->alamat }}
             </span>
           </p>
           <p class="my-0">
             <i class="fas fa-phone-alt"></i> Telp:
             <span>
-              000-123-456
+              {{ $profil->telepon }}
             </span>
           </p>
           <p class="my-0">
             <i class="fas fa-envelope"></i> Email:
             <span>
-              sekolah@gmail.com
+              {{ $profil->email_sekolah }}
             </span>
           </p>
         </div>

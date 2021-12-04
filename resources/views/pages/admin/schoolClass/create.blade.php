@@ -45,6 +45,11 @@
           <label for="tugas">Tugas</label>
           <input type="hidden" id="tugas" name="tugas" class="@error('tugas') is-invalid @enderror" value="{{ old('tugas') }}">
           <trix-editor input="tugas"></trix-editor>
+          @error('tugas')
+            <div class="text-danger">
+              <small>{{ $message }}</small>
+            </div>
+          @enderror
         </div>
 
         <button type="submit" class="btn btn-primary d-block ml-auto">Simpan</button>

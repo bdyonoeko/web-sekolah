@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('role')->default('SISWA');
             $table->string('image')->default('null');
-            $table->string('class')->default('null');
+            $table->string('class_id')->nullable(true);
             $table->rememberToken();
 
             $table->timestamps();

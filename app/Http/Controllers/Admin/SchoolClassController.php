@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\SchoolClassRequest;
 use App\Models\SchoolClassModel;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class SchoolClassController extends Controller
@@ -55,8 +56,11 @@ class SchoolClassController extends Controller
     public function show($id)
     {
         $class = SchoolClassModel::findOrFail($id);
+        $users = User::where('class_id', $id)->get();
+
         return view('pages.admin.schoolClass.show', [
-            'class' => $class
+            'class' => $class,
+            'users' => $users
         ]);
     }
 

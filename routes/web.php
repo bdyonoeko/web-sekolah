@@ -3,7 +3,10 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SchoolClassController;
 use App\Http\Controllers\Admin\SchoolProfileController;
+use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,17 +23,27 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])
   ->name('home');
 
-// Route::get('/profil-sekolah', [HomeController::class, 'show'])
-//   ->name('profil');
+Route::get('/sekolah', [HomeController::class, 'profil_sekolah'])
+  ->name('sekolah');
   
-Route::get('/kelas', [HomeController::class, 'index'])
+Route::get('/kelas', [HomeController::class, 'kelas'])
 ->name('kelas');
+
+Route::get('/kelas/{id}', [HomeController::class, 'detail_kelas'])
+->name('detail-kelas');
   
 Route::prefix('admin')
-// ->middleware(['auth', 'admin'])
+->middleware(['auth', 'admin'])
 ->group(function(){
   Route::get('/', [DashboardController::class, 'index'])
     ->name('dashboard');
+  Route::get('/dashboard/daftar_siswa', [DashboardController::class, 'daftar_siswa'])
+    ->name('daftar-siswa');
   Route::resource('/profil-sekolah', SchoolProfileController::class);
   Route::resource('/kelas', SchoolClassController::class);
 });
+
+Route::resource('user', UserController::class)->middleware(['auth', 'verified']);
+Route::resource('answer', AnswerController::class)->middleware(['auth', 'verified']);
+
+Auth::routes(['verify' => true]);
